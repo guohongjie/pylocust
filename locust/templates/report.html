@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            电器城测试部-性能测试报告
+        </title>
+        <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../static/daterangepicker.css" />
+        
+    </head>
+    
+    <body>
+        {% for jsfile_name in script_list %}
+        <script src="{{ host }}/{{ jsfile_name }}.js">
+        </script>
+        {% endfor %}
+        <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css"
+        rel="stylesheet" />
+        <style type="text/css">
+            body { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;
+            padding: 20px; font-size: 80%; }
+            tr th{
+                  background-color: #dff0d8;
+                  text-align: center;
+            }
+            tr td{
+              background-color: #fcf8e3;
+            }
+        </style>
+        <div class="form" id="form_id">
+            <div margin-left:auto;="" margin-right:auto="">
+                <h1 style="position:absolute;left:47%;top: 2%">
+                    <input class="text-in" type="text" data-must="1" size="24" placeholder="输入项目名称 "
+                    style="border-color: #878787;
+                    text-decoration:underline;
+                    border-top-width: 0px;
+                    border-right-width: 0px;
+                    border-bottom-width: 0px;
+                    border-left-width: 0px;
+                    font-size:24px;
+                    text-align:right;
+                    position:absolute;right:103%;
+                    top: 5px;
+                    resize:none;" />
+                    <span style="display: none;">
+                    </span>
+                    测试报告
+                </h1>
+            </div>
+        </div>
+        <h3 style="margin-top: 6%">基础信息：</h3>
+            <div class="form" style="margin-left:1%;font-size:18px">
+            <div>
+                <span style="color:red;margin-left:5%">
+                    *
+                </span>
+                测试目的：
+                <input class="text-in"  data-must="1" type="text" placeholder="测试目的"  id="txt_test"
+                name="txt" style="outline:none;min-width: 300px;margin-left: 0.5%;resize:none;height: 30px;"
+                />
+                <span style="outline:none;min-width: 300px;resize:none;height: 20px;">
+                </span>
+                <span style="color:red;margin-left:11%;">
+                    *
+                </span>
+                验证功能：
+                <input class="text-in" data-must="1" type="text" id="txt_check" placeholder="验证功能"
+                name="txt2" style="outline:none;min-width: 300px;margin-left: 0.5%;resize:none;height: 30px;"
+                />
+                <span style="display: none;">
+                </span>
+            </div>
+            <br />
+            <div>
+                <span style="color:red;margin-left:5%">
+                    *
+                </span>
+                用例编号：
+                <input class="text-in" data-must="1" type="text" id="txt_case" placeholder="用例编号"
+                name="txt3" style="outline:none;min-width: 300px;margin-left: 0.5%;resize:none;height: 30px;"
+                />
+                <span style="display: none;">
+                </span>
+                <span style="color:red;margin-left:11%">
+                    *
+                </span>
+                前置条件：
+                <input class="text-in" data-must="1" type="text" id="txt_tj" placeholder="前置条件"
+                name="txt3" style="outline:none;min-width: 300px;margin-left: 0.5%;resize:none;height: 30px;"
+                />
+                <span style="display: none;">
+                </span>
+            </div>
+            <br />
+            <div>
+                <span style="color:red;margin-left:5%">
+                    *
+                </span>
+                方法：
+                <input class="text-in" data-must="1" type="text" id="txt_fun" name="txt3"
+                placeholder="方法" style="outline:none;min-width: 300px;margin-left: 2.3%;resize:none;height: 30px;"
+                />
+                <span style="outline:none;min-width: 300px;margin-left: 1.8%;resize:none;height: 30px;">
+                </span>
+            </div>
+        </div>
+        <br />
+        <h3>
+            里程碑：
+        </h3>
+        <div class="form">
+            <div>
+                <table border="1" width="1150px" id="table_1" style="margin-left:5%;font-size:18px;text-align:center">
+                    <tbody>
+                        <tr class="success">
+                            <th>
+                                名称
+                            </th>
+                            <th>
+                            	开始日期 - 结束日期
+                            </th>
+                            <th>
+                                <span style="color:red">
+                                    *
+                                </span>
+                                执行人员
+                            </th>
+                            <th>
+                                备注
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                脚本调试
+                            </td>
+                            <td>
+                                <input type="text" class="date form-control" style="text-align:center;font-size: 80%">
+                            </td>
+                            <td>
+                                <input class="text-in" data-must="1" type="text" placeholder="执行人员" style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                            <td>
+                                <input class="text-in" type="text" placeholder="备注" style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                数据准备
+                            </td>
+                            <td>
+                                <input type="text" class="date form-control" style="text-align:center;font-size: 80%">
+                            </td>
+                            <td>
+                                <input class="text-in" data-must="1" type="text" placeholder="执行人员" style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                            <td>
+                                <input class="text-in" type="text" placeholder="备注" style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                执行时间
+                            </td>
+                            <td>
+                                <input type="text" class="date form-control" style="text-align:center;font-size: 80%">
+                            </td>
+                            <td>
+                                <input class="text-in" data-must="1" type="text" placeholder="执行人员" style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                            <td>
+                                <input class="text-in" type="text" placeholder="备注" style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br />
+        <h3>
+            硬件环境：
+        </h3>
+        <div class="form" style="margin-left: 1%">
+            <div style="font-size: 18px">
+                <span style="color:red;margin-left:5%">
+                    *
+                </span>
+                操作系统：
+                <select class="select_text" style="outline:none;min-width: 300px;margin-left: 0.5%;height: 30px">
+                    <option>
+                        Windows7
+                    </option>
+                    <option>
+                        Windows8
+                    </option>
+                    <option>
+                        Windows8.1
+                    </option>
+                    <option>
+                        Windows10
+                    </option>
+                    <option>
+                        Ubuntu
+                    </option>
+                    <option>
+                        Red Hat Linux
+                    </option>
+                    <option>
+                        Centos
+                    </option>
+                    <option>
+                        Fedora
+                    </option>
+                    <option>
+                        OS X 10.10
+                    </option>
+                    <option>
+                        OS X 10.11
+                    </option>
+                    <option>
+                        OS X 10.12
+                    </option>
+                    <option>
+                        OS X 10.13
+                    </option>
+                </select>
+                <span style="display: none;">
+                </span>
+                <span style="color:red;margin-left:11%">
+                    *
+                </span>
+                数据库：
+                <select class="select_text" style="outline:none;min-width: 300px;margin-left: 20px;height: 30px">
+                    <option>
+                      MySQL
+                    </option>
+                    <option>
+                      ORACLE
+                    </option>
+                    <option>
+                      DB2
+                    </option>
+                    <option>
+                      ACCESS
+                    </option>
+                    <option>
+                      Mongo
+                    </option>
+                    <option>
+                      Redis
+                    </option>
+                </select>
+                <span style="outline:none;min-width: 300px;margin-left: 20px;height: 30px">
+                </span>
+            </div>
+            <br />
+            <div style="font-size: 18px">
+                <span style="color:red;margin-left:5%">
+                    *
+                </span>
+                应用软件：
+                <input class="text-in" type="text" data-must="1" id="txt_input" placeholder="应用软件"
+                name="txt2" style="outline:none;min-width: 300px;margin-left: 0.5%;resize:none;height: 30px;"
+                />
+                <span style="display: none;">
+                </span>
+            </div>
+        </div><br>
+        <div class="form">
+            <div>
+                <table border="2" width="1150px" id="table" style="margin-left: 5%;font-size: 18px;text-align: center;">
+                    <!-- <caption align=left style="margin-left: 20px">硬件环境</caption> -->
+                    <tbody>
+                        <tr class="text-center success">
+                            <th>
+                                硬件名称
+                            </th>
+                            <th>
+                                <span style="color:red">
+                                    *
+                                </span>
+                                数量（台）
+                            </th>
+                            <th>
+                                <span style="color:red">
+                                    *
+                                </span>
+                                CPU
+                            </th>
+                            <th>
+                                <span style="color:red">
+                                    *
+                                </span>
+                                内存
+                            </th>
+                            <th>
+                                <span style="color:red">
+                                    *
+                                </span>
+                                网卡
+                            </th>
+                            <th>
+                                备注
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                应用服务器
+                            </td>
+                            <td>
+                                <input class="text-in" data-must="1" type="text" value="1" style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                            <td>
+                                <input class="text-in" data-must="1" type="text" placeholder="CPU信息 "
+                                style="resize:none;width: 90%;height: 20px;" />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                            <td>
+                                <input class="text-in" data-must="1" type="text" placeholder="8GB " style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                            <td>
+                                <input class="text-in" data-must="1" type="text" placeholder="网卡信息" style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                            <td>
+                                <input class="text-in" type="text" placeholder="备注" style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                数据库服务器
+                            </td>
+                            <td>
+                                <input class="text-in" data-must="1" type="text" value="1" style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                            <td>
+                                <input class="text-in" data-must="1" type="text" placeholder="CPU信息 "
+                                style="resize:none;width: 90%;height: 20px;" />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                            <td>
+                                <input class="text-in" data-must="1" type="text" placeholder="8GB " style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                            <td>
+                                <input class="text-in" data-must="1" type="text" placeholder="网卡信息" style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                            <td>
+                                <input class="text-in" type="text" placeholder="备注" style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                负载服务器
+                            </td>
+                            <td>
+                                <input class="text-in" data-must="1" type="text" value="1" style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                            <td>
+                                <input class="text-in" data-must="1" type="text" placeholder="CPU信息 "
+                                style="resize:none;width: 90%;height: 20px;" />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                            <td>
+                                <input class="text-in" data-must="1" type="text" placeholder="8GB " style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                            <td>
+                                <input class="text-in" data-must="1" type="text" placeholder="网卡信息" style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                            <td>
+                                <input class="text-in" type="text" placeholder="备注" style="resize:none;width: 100%;height: 30px;"
+                                />
+                                <span style="display: none;">
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br />
+        {{ myechart|safe }}
+        <div class="form">
+            <div>
+                <h3>
+                    <span style="color:red">
+                        *
+                    </span>
+                    结果分析：
+                </h3>
+                <br />
+                <textarea class="text-in" data-must="1" type="text" id="txtArea" name="txt" 
+                          style="outline:none;min-height: 400px;min-width: 60%;margin-left: 6%;resize:none;font-size: 18px">
+                </textarea>
+                <textarea style="outline:none;min-height: 400px;min-width: 60%;margin-left: 6%;
+                resize:none;display: none;background: rgba(255,255,255,1);border: none;word-wrap:break-word;font-size: 18px"
+                disabled="disabled">
+                </textarea>
+            </div>
+        </div>
+        <button type="submit" id="btn_submit" style="margin-left: 1%">
+            保存
+        </button>
+        <button type="submit" id="btn_edit" disabled="">
+            编辑
+        </button>
+        <script type="text/javascript" src="https://js.gomein.net.cn/??gmlib/jq/1.7.1/jquery.js">
+        </script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js">
+        </script>
+        <script type="text/javascript" src="https://cdn.bootcss.com/html2canvas/0.4.1/html2canvas.js">
+        </script>
+
+        <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="../static/js/moment.min.js"></script>
+        <script src="../static/js/daterangepicker.js"></script>
+        
+        <script type="text/javascript">
+            $("#btn_submit").click(function() {
+                var onOff = true;
+                $(".text-in").parent().find('em').remove();
+                $(".text-in").each(function(index, ele) {
+                    if (!$(ele).val() && $(ele).data('must') == 1) {
+                        $(ele).parent().append('<em style="color: red;">!必填</em>');
+                        onOff = false;
+                        return false;
+                    }
+                })
+
+                if (onOff) {
+                    $(".text-in").each(function(index, ele) {
+                        var val = $(ele).val();
+                        $(ele).hide().next().show().html(val);
+                    });
+
+                    $(".select_text").each(function(index, ele) {
+                        var val = $(ele).val();
+                        $(ele).hide().next().show().html(val);
+                    });
+
+                    $(this).prop("disabled", true);
+                    $("#btn_edit").attr("disabled", false);
+
+                    //图片导出为 png 格式
+                    var imgData = '';
+                    var type = 'png';
+                    // $("#btn_submit").click(function downloadFile(){
+                    $("#btn_submit").hide();
+                    $("#btn_edit").hide();
+                    html2canvas(document.body, {
+                        useCORS: true,
+                        onrendered: function(canvas) {
+                            canvas.id = 'mycanvas';
+                            document.body.appendChild(canvas);
+                            var canvas = document.getElementById("mycanvas");
+                            $("#mycanvas").attr("class", "mycanvas");
+                            imgData = canvas.toDataURL(type);
+                            location = imgData;
+
+                            // 加工image data，替换mime type
+                            imgData = imgData.replace(_fixType(type), 'image/octet-stream');
+
+                            // 下载后的问题名
+                            var filename = 'locust_report .' + type;
+                            // download
+                            saveFile(imgData, filename);
+                        }
+                    });
+                    // })
+                    /**
+   * 获取mimeType
+   * @param  {String} type the old mime-type
+   * @return the new mime-type
+   */
+                    var _fixType = function(type) {
+                        type = type.toLowerCase().replace(/jpg/i, 'jpeg');
+                        var r = type.match(/png|jpeg|bmp|gif/)[0];
+                        return 'image/' + r;
+                    };
+
+                    /**
+   * 在本地进行文件保存
+   * @param  {String} data     要保存到本地的图片数据
+   * @param  {String} filename 文件名
+   */
+                    var saveFile = function(data, filename) {
+                        var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+                        save_link.href = data;
+                        save_link.download = filename;
+
+                        var event = document.createEvent('MouseEvents');
+                        event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                        save_link.dispatchEvent(event);
+                        $("#btn_submit").show();
+                        $("#btn_edit").show();
+                        $("#mycanvas").remove();
+                    };;
+                }
+
+            });
+
+            $("#btn_edit").click(function() {
+                $(".text-in").each(function(index, ele) {
+                    $(ele).show().next().hide();
+                });
+
+                $(".select_text").each(function(index, ele) {
+                    $(ele).show().next().hide();
+                });
+
+                $(this).prop("disabled", true);
+                $("#btn_submit").prop("disabled", false);
+            });
+
+
+            $('.date').daterangepicker();
+        </script>
+    </body>
+
+</html>
